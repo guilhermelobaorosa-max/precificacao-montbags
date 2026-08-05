@@ -28,6 +28,22 @@ A taxa da venda entra por **markup divisor** — o preço sobe o suficiente para
 Tudo fica no `localStorage` do aparelho da artesã. Nada é enviado para servidor nenhum.
 A aba **Meu negócio** exporta as clientes em CSV para backup.
 
+## App no celular (PWA)
+
+Instalável na tela de início, com ícone próprio, tela cheia e funcionamento offline.
+
+- `manifest.webmanifest` — nome, ícones, cor da marca, modo `standalone`
+- `sw.js` — service worker: rede primeiro para a página (garante atualização),
+  cache como reserva (garante o offline)
+- Ícones gerados a partir do símbolo da marca sobre `#023535`
+
+**Ao publicar uma nova versão, suba o número em `VERSAO` dentro de `sw.js`.**
+Sem isso, aparelhos que já instalaram continuam abrindo a versão antiga do cache.
+
 ## Publicação
 
 Hospedado no GitHub Pages a partir da branch `main`, pasta raiz.
+
+    git add -A && git commit -m "..." && git push
+
+O Pages reconstrói sozinho em cerca de 30 segundos.
